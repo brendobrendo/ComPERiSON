@@ -56,6 +56,7 @@ namespace Features.Controllers
             PasswordHasher<User> hasher = new PasswordHasher<User>();
             newUser.Password = hasher.HashPassword(newUser, newUser.Password);
 
+
             db.Users.Add(newUser);
             db.SaveChanges();
 
@@ -115,6 +116,8 @@ namespace Features.Controllers
             int? currentUserId = HttpContext.Session.GetInt32("count");
             User currentUser = db.Users
             .FirstOrDefault(users => users.UserId == HttpContext.Session.GetInt32("UserId"));
+
+            ViewBag.Address = currentUser.Address;
 
             return View("Success", currentUser);
         }
