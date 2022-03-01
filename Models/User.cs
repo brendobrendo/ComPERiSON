@@ -23,6 +23,8 @@ namespace Features.Models
         [EmailAddress]
         public string Email { get; set; }
 
+        public string Address { get; set; }
+
         [Required(ErrorMessage = "is required")]
         [MinLength(8, ErrorMessage = "must be at least 8 characters")]
         [DataType(DataType.Password)]
