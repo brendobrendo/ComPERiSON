@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Features.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Features.Controllers
 {
@@ -127,6 +128,50 @@ namespace Features.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
+        }
+
+        [HttpPost("/edit")]
+        public ActionResult Edit(UserProfile userprofile)
+        {
+            if (ModelState.IsValid)
+            {
+                string username = User.Identity.Name;
+                // Get the userprofile
+                UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.Equals(username));
+
+                // Update fields
+                user.FirstName = userprofile.FirstName;
+                user.LastName = userprofile.LastName;
+                user.Address = userprofile.Address;
+                user.DOB = userprofile.DOB;
+                user.AboutMe = userprofile.AboutMe;
+
+                db.Entry(user).State = EntityState.Modified;
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index", "Home"); // or whatever
+            }
+
+            return View(userprofile);
+        }
+
+        public ActionResult Edit()
+        {
+            string username = User.Identity.Name;
+
+            // Fetch the userprofile
+            UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.Equals(username));
+
+            // Construct the viewmodel
+            UserProfile model = new UserProfile();
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.Address = user.Address;
+            model.DOB = user.DOB;
+            model.AboutMe = user.AboutMe;
+
+            return View(model);
         }
 
         public IActionResult Privacy()

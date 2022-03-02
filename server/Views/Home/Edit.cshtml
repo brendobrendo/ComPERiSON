@@ -1,0 +1,12 @@
+@model UserProfile
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(model => model.FirstName)
+    @Html.EditorFor(model => model.LastName)
+    @Html.EditorFor(model => model.Address)
+    @Html.EditorFor(model => model.DOB)
+    @Html.EditorFor(model => model.AboutMe)
+
+    <input type="submit" value="Save" />
+}
