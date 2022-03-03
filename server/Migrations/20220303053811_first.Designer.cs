@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Features.Migrations
 {
     [DbContext(typeof(FeaturesContext))]
-    [Migration("20220302235451_first")]
+    [Migration("20220303053811_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,8 +57,9 @@ namespace Features.Migrations
 
             modelBuilder.Entity("Features.Models.UserProfile", b =>
                 {
-                    b.Property<string>("FirstName")
-                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
                     b.Property<string>("AboutMe")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -69,11 +70,15 @@ namespace Features.Migrations
                     b.Property<DateTime>("DOB")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.HasKey("FirstName");
+                    b.HasKey("UserId");
 
                     b.ToTable("UserProfiles");
                 });

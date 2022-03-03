@@ -38,6 +38,7 @@ namespace Features.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.NotLoggedIn = true;
             return View("Home");
         }
 
@@ -47,6 +48,7 @@ namespace Features.Controllers
             if (loggedIn){
                 return RedirectToAction("Success");
             }
+            ViewBag.NotLoggedIn = true;
             return View();
         }
 
@@ -56,6 +58,7 @@ namespace Features.Controllers
             if (loggedIn){
                 return RedirectToAction("Success");
             }
+            ViewBag.NotLoggedIn = true;
             return View();
         }
 
@@ -169,7 +172,7 @@ namespace Features.Controllers
 
                 db.SaveChanges();
 
-                return RedirectToAction("Home"); // or whatever
+                return RedirectToAction(); // or whatever
             }
 
             return View(userprofile);

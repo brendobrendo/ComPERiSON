@@ -12,6 +12,8 @@ namespace Features.Migrations
                 name: "UserProfiles",
                 columns: table => new
                 {
+                    UserId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: false),
                     LastName = table.Column<string>(nullable: false),
                     Address = table.Column<string>(nullable: true),
@@ -20,7 +22,7 @@ namespace Features.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserProfiles", x => x.FirstName);
+                    table.PrimaryKey("PK_UserProfiles", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
