@@ -130,7 +130,7 @@ namespace Features.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost("/edit")]
+        [HttpGet("/edit")]
         public ActionResult Edit(UserProfile userprofile)
         {
             if (ModelState.IsValid)
