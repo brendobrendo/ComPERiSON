@@ -8,6 +8,8 @@ namespace Features.Models
     {
         [Key]
 
+        public int UserId { get; set; }
+
         [Required(ErrorMessage = "is required")]
         [MinLength(2, ErrorMessage = "must be at least 2 characters")]
         [Display(Name = "First Name")]

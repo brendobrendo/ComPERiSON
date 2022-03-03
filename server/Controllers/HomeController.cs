@@ -150,7 +150,7 @@ namespace Features.Controllers
 
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Home"); // or whatever
+                return RedirectToAction("Home"); // or whatever
             }
 
             return View(userprofile);
