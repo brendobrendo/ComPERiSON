@@ -38,6 +38,10 @@ namespace Features.Controllers
 
         public IActionResult Index()
         {
+            if (loggedIn){
+                return RedirectToAction("Success");
+            }
+            
             ViewBag.NotLoggedIn = true;
             return View("Home");
         }
