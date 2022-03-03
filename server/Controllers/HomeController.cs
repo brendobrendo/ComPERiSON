@@ -38,8 +38,27 @@ namespace Features.Controllers
 
         public IActionResult Index()
         {
+            return View("Home");
+        }
+
+        [HttpGet("/_Login")]
+        public IActionResult _Login()
+        {
+            if (loggedIn){
+                return RedirectToAction("Success");
+            }
             return View();
         }
+
+        [HttpGet("/_Register")]
+        public IActionResult _Register()
+        {
+            if (loggedIn){
+                return RedirectToAction("Success");
+            }
+            return View();
+        }
+
 
         [HttpPost("/register")]
         public IActionResult Register(User newUser)
