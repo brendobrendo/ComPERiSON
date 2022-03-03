@@ -4,9 +4,24 @@
 
 <div class="comparison-container border bg-light p-3">
     <div class="d-flex justify-content-center">
-        <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
+        <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px"
+        onclick="alert('Loading weather report...')"">
             <h2>Candiate Info #1</h2>
+            <form>
+                @* <a asp-controller="comparisons" asp-action="Compare2"><span><input type="radio"></span></a> *@
+                <p id="box" onmouseover="hoverClick()">Hi</p>
+            </form>
         </div>
+        <script>
+            function hoverclick() {
+                var x = document.getElementById("box");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
         <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
             <h2>Candiate Info #2</h2>
         </div>
@@ -18,5 +33,5 @@
         <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
             <h2>Candiate Info #4</h2>
         </div>
-    </div>         
+    </div>
 </div>

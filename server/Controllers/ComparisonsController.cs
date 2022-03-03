@@ -44,7 +44,16 @@ namespace Features.Controllers
             }
             return View();
         }
-        
+
+        public IActionResult Compare2()
+        {
+            if (!loggedIn)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
