@@ -42,7 +42,9 @@ namespace Features.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View();
+
+            List<User> candidates = db.Users.ToList();
+            return View("Compare", candidates);
         }
 
         public IActionResult Compare2()

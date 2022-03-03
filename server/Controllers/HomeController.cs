@@ -41,7 +41,7 @@ namespace Features.Controllers
             if (loggedIn){
                 return RedirectToAction("Success");
             }
-            
+
             ViewBag.NotLoggedIn = true;
             return View("Home");
         }
@@ -65,7 +65,7 @@ namespace Features.Controllers
             ViewBag.NotLoggedIn = true;
             return View();
         }
-
+        
 
         [HttpPost("/register")]
         public IActionResult Register(User newUser)
