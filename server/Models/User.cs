@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -35,6 +36,8 @@ namespace Features.Models
         [Compare("Password", ErrorMessage = "passwords don't match")]
         [Display(Name = "Confirm Password")]
         public string PasswordConfirm { get; set; }
+
+        public List<Spotify> SpotifyAccounts { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

@@ -17,6 +17,28 @@ namespace Features.Migrations
                 .HasAnnotation("ProductVersion", "3.1.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Features.Models.Spotify", b =>
+                {
+                    b.Property<int>("SpotifyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Artist")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ArtistImage")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SpotifyId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Spotifies");
+                });
+
             modelBuilder.Entity("Features.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -79,6 +101,15 @@ namespace Features.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("UserProfiles");
+                });
+
+            modelBuilder.Entity("Features.Models.Spotify", b =>
+                {
+                    b.HasOne("Features.Models.User", "User")
+                        .WithMany("SpotifyAccounts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
