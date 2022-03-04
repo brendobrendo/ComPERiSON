@@ -7,8 +7,12 @@
 <div class="comparison-container border bg-light p-3">
     <div class="d-flex justify-content-center">
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[0].UserId</h2>
-            <form action="/comparisons/compare4" method="POST">
+            <div class="map googleapi">
+                <iframe width="200" length="200"
+                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAQcRAg7ZEMa4L9TRf0QkLlCOdKmtWUMbc&q=@Model[0].Address"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+            <form action="/comparisons/winner" method="POST">
                 <input hidden="" name="boxNumberChosen" value=0>
                 <div>
                     <button class="btn btn-primary">Like</button>
@@ -17,8 +21,12 @@
             </form>
         </div>
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[1].UserId</h2>
-            <form action="/comparisons/compare4" method="POST">
+            <div class="map googleapi">
+                <iframe width="200" length="200"
+                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAQcRAg7ZEMa4L9TRf0QkLlCOdKmtWUMbc&q=@Model[1].Address"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+            <form action="/comparisons/winner" method="POST">
                 <input hidden="" name="boxNumberChosen" value=1>
                 <div>
                     <button class="btn btn-primary">Like</button>
@@ -29,8 +37,12 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[2].UserId</h2>
-            <form action="/comparisons/compare4" method="POST">
+            <div class="map googleapi">
+                <iframe width="200" length="200"
+                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAQcRAg7ZEMa4L9TRf0QkLlCOdKmtWUMbc&q=@Model[2].Address"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+            <form action="/comparisons/winner" method="POST">
                 <input hidden="" name="boxNumberChosen" value=2>
                 <div>
                     <button class="btn btn-primary">Like</button>
@@ -39,8 +51,12 @@
             </form>
         </div>
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[3].UserId</h2>
-            <form action="/comparisons/compare4" method="POST">
+            <div class="map googleapi">
+                <iframe width="200" length="200"
+                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAQcRAg7ZEMa4L9TRf0QkLlCOdKmtWUMbc&q=@Model[3].Address"
+                frameborder="0" allowfullscreen></iframe>
+            </div>
+            <form action="/comparisons/winner" method="POST">
                 <input hidden="" name="boxNumberChosen" value=3>
                 <div>
                     <button class="btn btn-primary">Like</button>
