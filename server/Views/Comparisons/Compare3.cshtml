@@ -7,7 +7,7 @@
 <div class="comparison-container border bg-light p-3">
     <div class="d-flex justify-content-center">
         <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
-            <h2>@Model[0].LastName</h2>
+            <h2>@Model[0].Email</h2>
             <form action="/comparisons/compare3" method="Post">
                 <input hidden="candidates" value="@Model">
                 <input hidden="candidate-box" value="0">
@@ -18,7 +18,7 @@
             </form>
         </div>
         <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
-            <h2>@Model[1].LastName</h2>
+            <h2>@Model[1].Email</h2>
             <form action="/comparisons/compare3" method="Post">
                 <input hidden="candidates" value="@Model">
                 <input hidden="candidate-box" value="1">
@@ -31,7 +31,7 @@
     </div>
     <div class="d-flex justify-content-center">
         <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
-            <h2>@Model[2].LastName</h2>
+            <h2>@Model[2].Email</h2>
             <form action="/comparisons/compare3" method="Post">
                 <input hidden="candidates" value="@Model">
                 <input hidden="candidate-box" value="2">
@@ -42,7 +42,7 @@
             </form>
         </div>
         <div class="comparison-card bg-success text-white rounded m-3" style="width:300px; height:300px">
-            <h2>@Model[3].LastName</h2>
+            <h2>@Model[3].Email</h2>
             <form action="/comparisons/compare3" method="Post">
                 <input hidden="candidates" value="@Model">
                 <input hidden="candidate-box" value="3">

@@ -1,4 +1,4 @@
-@model List<User>
+@model ComparisonSession
 
 @{
     ViewData["Title"] = "Home Page";
@@ -6,34 +6,51 @@
 
 <div class="comparison-container border bg-light p-3">
     <div class="d-flex justify-content-center">
-        <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px"
-        onclick="alert('Loading weather report...')"">
-            <h2>@Model[0].FirstName</h2>
-            <form>
-                @* <a asp-controller="comparisons" asp-action="Compare2"><span><input type="radio"></span></a> *@
-                <p id="box" onmouseover="hoverClick()">NEED TO UPDATE THIS</p>
+        <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
+            <h2>@Model.Candidates[0].</h2>
+            <form asp-controller="Comparisons" asp-action="Compare2">
+                <input hidden="" asp-for="Candidates" value="@Model.Candidates">
+                <input hidden="" asp-for="WinningBoxNumber" value=0>
+                <div>
+                    <button class="btn btn-primary">Like</button>
+                    <button class="btn btn-success">Super Like</button>
+                </div>
             </form>
         </div>
-        <script>
-            function hoverclick() {
-                var x = document.getElementById("box");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[1].FirstName</h2>
+            <h2>@Model.Candidates[1]</h2>
+            <form asp-controller="Comparisons" asp-action="Compare2">
+                <input hidden="" asp-for="Candidates" value="@Model.Candidates">
+                <input hidden="" asp-for="WinningBoxNumber" value=1>
+                <div>
+                    <button class="btn btn-primary">Like</button>
+                    <button class="btn btn-success">Super Like</button>
+                </div>
+            </form>
         </div>
     </div>
     <div class="d-flex justify-content-center">
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[2].FirstName</h2>
+            <h2>@Model.Candidates[2]</h2>
+            <form asp-controller="Comparisons" asp-action="Compare2">
+                <input hidden="" asp-for="Candidates" value="@Model.Candidates">
+                <input hidden="" asp-for="WinningBoxNumber" value=2>
+                <div>
+                    <button class="btn btn-primary">Like</button>
+                    <button class="btn btn-success">Super Like</button>
+                </div>
+            </form>
         </div>
         <div class="comparison-card bg-success text-white rounded m-3 p-3" style="width:300px; height:300px">
-            <h2>@Model[3].FirstName</h2>
+            <h2>@Model.Candidates[3]</h2>
+            <form asp-controller="Comparisons" asp-action="Compare2">
+                <input hidden="" asp-for="Candidates" value="@Model.Candidates">
+                <input hidden="" asp-for="WinningBoxNumber" value=0>
+                <div>
+                    <button class="btn btn-primary">Like</button>
+                    <button class="btn btn-success">Super Like</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
