@@ -1,7 +1,7 @@
-@model List<User>
+@model User
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<h1>According to our app, you will find true love with @Model[0].FirstName @Model[0].LastName</h1>
+<h1>According to our app, you will find true love with @Model.FirstName @Model.LastName</h1>
