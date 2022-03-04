@@ -9,6 +9,7 @@ namespace Features.Models
         // the names of these properties will be the names of the tables in the db
         public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Spotify> Spotifies { get; set; }
 
         // public DbSet<Widget> Widgets { get; set; }
         // public DbSet<Item> Items { get; set; }
